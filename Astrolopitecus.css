@@ -2,33 +2,29 @@
    1. Fondo y Atmósfera de la Sabana
    ========================================================================== */
 body {
-    font-family: 'Courier New', Courier, monospace;
-    /* Degradado profundo que simula un amanecer/anochecer en el Rift Valley */
-    background: linear-gradient(135deg, #130f0c 0%, #201710 100%);
+    background-color: #1a1512;
     color: #f4ece1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
-    justify-content: center;
 }
 
 /* ==========================================================================
    2. Contenedor de la Bitácora de Aventura
    ========================================================================== */
 .game-container {
-    max-width: 650px;
     width: 100%;
-    background: #2c241d;
-    padding: 35px;
-    border-radius: 12px;
-    /* Sombra pesada para darle un aspecto físico y misterioso */
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-    border: 2px solid #8b5a2b;
+    max-width: 750px;          /* Evita que se estire demasiado en pantallas gigantes */
+    background-color: #2c241e; /* El fondo oscuro del "cuadrado" contenedor */
+    border: 2px solid #d35400; /* Borde naranja prehistórico para recuperar el recuadro */
+    border-radius: 12px;       /* Esquinas suavizadas */
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Sombra para darle profundidad */
     box-sizing: border-box;
-    animation: fadeIn 0.5s ease-out;
 }
 
 @keyframes fadeIn {
@@ -121,12 +117,12 @@ h1 {
    ========================================================================== */
 .image-container {
     width: 100%;
-    max-height: 250px;
+    height: 380px;             /* Altura fija y estable para la computadora */
     overflow: hidden;
     border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #8b5a2b;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    background-color: #110d0b; /* Fondo por si la imagen tarda en cargar */
 }
 
 /* ==========================================================================
@@ -139,10 +135,9 @@ h1 {
 
 #story-img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: 100%;              /* Ocupa el 100% de la caja contenedora fija */
+    object-fit: cover;         /* Recorta los polígonos de forma perfecta sin deformarlos */
     display: block;
-    /* Añadimos una animación para que la imagen aparezca suavemente */
     animation: fadeInScene 0.4s ease-in-out;
 }
 
@@ -166,5 +161,85 @@ h1 {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Adaptación para Dispositivos Móviles (Celulares y Tablets)
+   ========================================================================== */
+@media screen and (max-width: 600px) {
+
+    .game-container {
+        width: 95%;
+        padding: 15px;         /* Menos espacio interno en pantallas chicas */
+        margin: 10px auto;
+    }
+
+    /* Reducimos la altura de la caja de la imagen solo para el celular */
+    .image-container {
+        height: 220px;         /* Una altura perfecta y cómoda para sostener con la mano */
+        margin-bottom: 15px;
+    }
+
+    #story-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Tus otros estilos de botones de celular se quedan igual debajo... */
+    .choices-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .choice-btn {
+        width: 100%;
+        padding: 14px 10px;
+    }
+    
+    /* Reducir el tamaño del título principal */
+    h1 {
+        font-size: 1.8rem !important;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    /* Acomodar el panel de Época y Lugar uno debajo del otro */
+    .status-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    /* Reducir ligeramente el tamaño del texto de la historia */
+    .story-text {
+        font-size: 1rem !important;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        padding: 0 5px;
+    }
+
+    /* Hacer los botones de opciones más grandes y fáciles de tocar con el dedo */
+    .choices-container {
+        display: flex;
+        flex-direction: column; /* Coloca un botón debajo del otro */
+        gap: 12px;             /* Espacio cómodo entre los botones */
+    }
+
+    .choice-btn {
+        width: 100%;           /* Los botones ocupan todo el ancho disponible */
+        padding: 14px 10px;    /* Más espacio interno para que sea fácil de pulsar */
+        font-size: 1rem;       /* Tamaño de letra legible en mano */
+        border-radius: 6px;
+    }
+
+    /* Ajustar el tamaño del botón de la pantalla de bienvenida */
+    .start-btn {
+        padding: 12px 30px;
+        font-size: 1.3rem;
     }
 }
