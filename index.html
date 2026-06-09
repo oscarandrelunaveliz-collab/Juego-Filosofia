@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervivencia Homínida: Odisea Australopithecus</title>
+    <link rel="stylesheet" href="Astrolopitecus.css">
+    <style>
+        /* Estilos rápidos para la pantalla de inicio */
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1512; /* Color oscuro prehistórico */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: #f4ece1;
+            font-family: sans-serif;
+        }
+        .start-btn {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            background-color: #d35400;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+        .start-btn:hover {
+            transform: scale(1.05);
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcome" class="welcome-screen">
+        <h1 style="margin-bottom: 10px; text-align: center;">Odisea Australopithecus</h1>
+        <p style="margin-bottom: 30px; color: #ffffff;">Presiona el botón para iniciar la aventura</p>
+        <p style="margin-bottom: 30px; color: #aaa;">Juego elaborado por Oscar Andre Luna Veliz, para el grupo de Filosofia numero 4</p>
+        <p style="margin-bottom: 30px; color: #aaa;">Prohibida su distribucion XD</p>
+        <button class="start-btn" onclick="iniciarJuegoCompleto()">JUGAR</button>
+    </div>
+
+    <audio id="bg-music" src="Selva Saltarina.mp3" loop></audio>
+
+    <div class="game-container">
+        <h1>Odisea Australopithecus</h1>
+        
+        <div class="status-panel">
+            <span>📍 Época: Plioceno (~3M de años)</span>
+            <span>🌍 Lugar: Rift Valley, África</span>
+        </div>
+
+        <div class="image-container">
+            <img id="story-img" src="" alt="Escena de la aventura">
+        </div>
+
+        <div class="story-text" id="story">
+            Cargando la historia prehistórica...
+        </div>
+
+        <div class="choices-container" id="choices">
+            </div>
+    </div>
+
+    <script src="Astrolopitecus.js"></script>
+</body>
+</html>
